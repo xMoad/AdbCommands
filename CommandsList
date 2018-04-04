@@ -1,0 +1,313 @@
+https://gist.github.com/Pulimet/5013acf2cd5b28e55036c82c91bd56d8
+
+
+https://stackoverflow.com/questions/23488290/android-importing-contacts-through-vcards-via-adb
+https://developer.android.com/reference/android/content/Context.html#getExternalFilesDir(java.lang.String)
+https://stackoverflow.com/questions/10123812/diff-between-getexternalfilesdir-and-getexternalstoragedirectory
+https://stackoverflow.com/questions/39143681/how-to-get-android-getexternalstoragedirectory-folder-by-adb
+
+//Play Music 
+adb shell am start -a android.intent.action.VIEW -d file:///storage/emulated/0/Music/Lbenj.mp3 -t audio/mp3
+
+À partir de l’adresse <https://stackoverflow.com/questions/42635693/adb-shell-command-for-playing-audio-on-genymotion> 
+
+//Stop Music 
+adb shell input keyevent 127
+
+À partir de l’adresse <https://stackoverflow.com/questions/33372553/music-player-controlled-from-adb> 
+
+
+//Push & Pull files to & from adb Devices
+adb push C:\Users\Jonathan\Desktop\video.mp4 /sdcard/
+adb pull /sdcard/video.mp4 C:\Users\Jonathan\Desktop
+
+À partir de l’adresse <https://www.androidauthority.com/android-customization-transfer-files-adb-push-adb-pull-601015/> 
+
+//Get Error details 
+status, out, err = fmbtandroid.Device().shellSOE("am start -a android.intent.action.VIEW -d file:///storage/emulated/0/Music/Lbenj.mp3 -t audio/mp3")
+print 'status: %s, stdout: "%s", stderr: "%s"' % (status, out, err)
+
+
+//Launch activity from package Name
+adb shell monkey -p your.app.package.name -c android.intent.category.LAUNCHER 1
+
+À partir de l’adresse <https://stackoverflow.com/questions/4567904/how-to-start-an-application-using-android-adb-tools> 
+
+//Execute Shell Command
+from subprocess import call
+os.system('adb push C:/"TestStand AIVI"/fMBT/InitFiles/Device1.vcf /storage/emulated/0/Contact')
+
+
+//Display External Storage Support
+Adb shell "echo $EXTERNAL_STORAGE"
+
+À partir de l’adresse <https://stackoverflow.com/questions/39143681/how-to-get-android-getexternalstoragedirectory-folder-by-adb> 
+
+//Launch VLC Media
+Adb shell monkey -p org.videolan.vlc -c android.intent.category.LAUNCHER 1
+
+
+//Change permissions
+adb shell pm reset-permissions your.package.name 
+https://stackoverflow.com/questions/46658643/android-grant-permissions-through-adb
+
+À partir de l’adresse <https://stackoverflow.com/questions/16410167/how-do-i-use-adb-grant-or-adb-revoke> 
+
+adb shell pm grant com.name.app android.permission.READ_PROFILE
+
+À partir de l’adresse <https://stackoverflow.com/questions/16410167/how-do-i-use-adb-grant-or-adb-revoke> 
+
+adb shell pm revoke com.name.app android.permission.READ_PROFILE
+
+À partir de l’adresse <https://stackoverflow.com/questions/16410167/how-do-i-use-adb-grant-or-adb-revoke> 
+
+//List Permissions 
+adb shell pm list permissions -d -g
+
+À partir de l’adresse <https://stackoverflow.com/questions/46658643/android-grant-permissions-through-adb> 
+
+//List Packages
+Adb shell pm list packages
+
+
+
+
+
+  
+
+
+
+
+
+
+// Clear contacts
+adb shell pm clear com.android.providers.contacts
+
+// Clear Telephony data
+adb shell pm clear com.android.providers.telephony
+
+// Clear Calendar
+adb shell pm clear com.android.providers.calendar
+
+// Import Fichier VCF
+adb shell am start -t "text/x-vcard" -d "file:///storage/sdcard0/Contacts.vcf" -a android.intent.action.VIEW com.android.contacts
+
+// Send File to device
+adb push c:\tptp\file.ext /storage/SDCARd
+
+// open bluetooth settings
+adb shell am start -a android.settings.BLUETOOTH_SETTINGS"
+
+// Entrée de text
+adb shell input text 'this%sis%san%sexample'   
+
+
+// Appui bouton
+adb shell input keyevent xx
+
+0 -->  "KEYCODE_UNKNOWN" 
+1 -->  "KEYCODE_MENU" 
+2 -->  "KEYCODE_SOFT_RIGHT" 
+3 -->  "KEYCODE_HOME" 
+4 -->  "KEYCODE_BACK" 
+5 -->  "KEYCODE_CALL" 
+6 -->  "KEYCODE_ENDCALL" 
+7 -->  "KEYCODE_0" 
+8 -->  "KEYCODE_1" 
+9 -->  "KEYCODE_2" 
+10 -->  "KEYCODE_3" 
+11 -->  "KEYCODE_4" 
+12 -->  "KEYCODE_5" 
+13 -->  "KEYCODE_6" 
+14 -->  "KEYCODE_7" 
+15 -->  "KEYCODE_8" 
+16 -->  "KEYCODE_9" 
+17 -->  "KEYCODE_STAR" 
+18 -->  "KEYCODE_POUND" 
+19 -->  "KEYCODE_DPAD_UP" 
+20 -->  "KEYCODE_DPAD_DOWN" 
+21 -->  "KEYCODE_DPAD_LEFT" 
+22 -->  "KEYCODE_DPAD_RIGHT" 
+23 -->  "KEYCODE_DPAD_CENTER" 
+24 -->  "KEYCODE_VOLUME_UP" 
+25 -->  "KEYCODE_VOLUME_DOWN" 
+26 -->  "KEYCODE_POWER" 
+27 -->  "KEYCODE_CAMERA" 
+28 -->  "KEYCODE_CLEAR" 
+29 -->  "KEYCODE_A" 
+30 -->  "KEYCODE_B" 
+31 -->  "KEYCODE_C" 
+32 -->  "KEYCODE_D" 
+33 -->  "KEYCODE_E" 
+34 -->  "KEYCODE_F" 
+35 -->  "KEYCODE_G" 
+36 -->  "KEYCODE_H" 
+37 -->  "KEYCODE_I" 
+38 -->  "KEYCODE_J" 
+39 -->  "KEYCODE_K" 
+40 -->  "KEYCODE_L" 
+41 -->  "KEYCODE_M" 
+42 -->  "KEYCODE_N" 
+43 -->  "KEYCODE_O" 
+44 -->  "KEYCODE_P" 
+45 -->  "KEYCODE_Q" 
+46 -->  "KEYCODE_R" 
+47 -->  "KEYCODE_S" 
+48 -->  "KEYCODE_T" 
+49 -->  "KEYCODE_U" 
+50 -->  "KEYCODE_V" 
+51 -->  "KEYCODE_W" 
+52 -->  "KEYCODE_X" 
+53 -->  "KEYCODE_Y" 
+54 -->  "KEYCODE_Z" 
+55 -->  "KEYCODE_COMMA" 
+56 -->  "KEYCODE_PERIOD" 
+57 -->  "KEYCODE_ALT_LEFT" 
+58 -->  "KEYCODE_ALT_RIGHT" 
+59 -->  "KEYCODE_SHIFT_LEFT" 
+60 -->  "KEYCODE_SHIFT_RIGHT" 
+61 -->  "KEYCODE_TAB" 
+62 -->  "KEYCODE_SPACE" 
+63 -->  "KEYCODE_SYM" 
+64 -->  "KEYCODE_EXPLORER" 
+65 -->  "KEYCODE_ENVELOPE" 
+66 -->  "KEYCODE_ENTER" 
+67 -->  "KEYCODE_DEL" 
+68 -->  "KEYCODE_GRAVE" 
+69 -->  "KEYCODE_MINUS" 
+70 -->  "KEYCODE_EQUALS" 
+71 -->  "KEYCODE_LEFT_BRACKET" 
+72 -->  "KEYCODE_RIGHT_BRACKET" 
+73 -->  "KEYCODE_BACKSLASH" 
+74 -->  "KEYCODE_SEMICOLON" 
+75 -->  "KEYCODE_APOSTROPHE" 
+76 -->  "KEYCODE_SLASH" 
+77 -->  "KEYCODE_AT" 
+78 -->  "KEYCODE_NUM" 
+79 -->  "KEYCODE_HEADSETHOOK" 
+80 -->  "KEYCODE_FOCUS" 
+81 -->  "KEYCODE_PLUS" 
+82 -->  "KEYCODE_MENU" 
+83 -->  "KEYCODE_NOTIFICATION" 
+84 -->  "KEYCODE_SEARCH" 
+85 -->  "TAG_LAST_KEYCODE"
+
+
+
+
+
+
+
+_g_keyNames = set((
+    "0", "1", "2", "3", "3D_MODE", "4", "5", "6", "7",
+    "8", "9", "A", "ALT_LEFT", "ALT_RIGHT", "APOSTROPHE",
+    "APP_SWITCH", "ASSIST", "AT", "AVR_INPUT", "AVR_POWER", "B",
+    "BACK", "BACKSLASH", "BOOKMARK", "BREAK", "BRIGHTNESS_DOWN",
+    "BRIGHTNESS_UP", "BUTTON_1", "BUTTON_10", "BUTTON_11",
+    "BUTTON_12", "BUTTON_13", "BUTTON_14", "BUTTON_15", "BUTTON_16",
+    "BUTTON_2", "BUTTON_3", "BUTTON_4", "BUTTON_5", "BUTTON_6",
+    "BUTTON_7", "BUTTON_8", "BUTTON_9", "BUTTON_A", "BUTTON_B",
+    "BUTTON_C", "BUTTON_L1", "BUTTON_L2", "BUTTON_MODE", "BUTTON_R1",
+    "BUTTON_R2", "BUTTON_SELECT", "BUTTON_START", "BUTTON_THUMBL",
+    "BUTTON_THUMBR", "BUTTON_X", "BUTTON_Y", "BUTTON_Z", "C",
+    "CALCULATOR", "CALENDAR", "CALL", "CAMERA", "CAPS_LOCK",
+    "CAPTIONS", "CHANNEL_DOWN", "CHANNEL_UP", "CLEAR", "COMMA",
+    "CONTACTS", "CTRL_LEFT", "CTRL_RIGHT", "D", "DEL", "DPAD_CENTER",
+    "DPAD_DOWN", "DPAD_LEFT", "DPAD_RIGHT", "DPAD_UP", "DVR", "E",
+    "EISU", "ENDCALL", "ENTER", "ENVELOPE", "EQUALS", "ESCAPE",
+    "EXPLORER", "F", "F1", "F10", "F11", "F12", "F2", "F3", "F4",
+    "F5", "F6", "F7", "F8", "F9", "FOCUS", "FORWARD", "FORWARD_DEL",
+    "FUNCTION", "G", "GRAVE", "GUIDE", "H", "HEADSETHOOK", "HENKAN",
+    "HOME", "I", "INFO", "INSERT", "J", "K", "KANA",
+    "KATAKANA_HIRAGANA", "L", "LANGUAGE_SWITCH", "LEFT_BRACKET", "M",
+    "MANNER_MODE", "MEDIA_AUDIO_TRACK", "MEDIA_CLOSE", "MEDIA_EJECT",
+    "MEDIA_FAST_FORWARD", "MEDIA_NEXT", "MEDIA_PAUSE", "MEDIA_PLAY",
+    "MEDIA_PLAY_PAUSE", "MEDIA_PREVIOUS", "MEDIA_RECORD",
+    "MEDIA_REWIND", "MEDIA_STOP", "MENU", "META_LEFT", "META_RIGHT",
+    "MINUS", "MOVE_END", "MOVE_HOME", "MUHENKAN", "MUSIC", "MUTE",
+    "N", "NOTIFICATION", "NUM", "NUMPAD_0", "NUMPAD_1", "NUMPAD_2",
+    "NUMPAD_3", "NUMPAD_4", "NUMPAD_5", "NUMPAD_6", "NUMPAD_7",
+    "NUMPAD_8", "NUMPAD_9", "NUMPAD_ADD", "NUMPAD_COMMA",
+    "NUMPAD_DIVIDE", "NUMPAD_DOT", "NUMPAD_ENTER", "NUMPAD_EQUALS",
+    "NUMPAD_LEFT_PAREN", "NUMPAD_MULTIPLY", "NUMPAD_RIGHT_PAREN",
+    "NUMPAD_SUBTRACT", "NUM_LOCK", "O", "P", "PAGE_DOWN", "PAGE_UP",
+    "PERIOD", "PICTSYMBOLS", "PLUS", "POUND", "POWER", "PROG_BLUE",
+    "PROG_GREEN", "PROG_RED", "PROG_YELLOW", "Q", "R",
+    "RIGHT_BRACKET", "RO", "S", "SCROLL_LOCK", "SEARCH", "SEMICOLON",
+    "SETTINGS", "SHIFT_LEFT", "SHIFT_RIGHT", "SLASH", "SOFT_LEFT",
+    "SOFT_RIGHT", "SPACE", "STAR", "STB_INPUT", "STB_POWER",
+    "SWITCH_CHARSET", "SYM", "SYSRQ", "T", "TAB", "TV", "TV_INPUT",
+    "TV_POWER", "U", "UNKNOWN", "V", "VOLUME_DOWN", "VOLUME_MUTE",
+    "VOLUME_UP", "W", "WINDOW", "X", "Y", "YEN", "Z",
+    "ZENKAKU_HANKAKU", "ZOOM_IN", "ZOOM_OUT"))
+
+
+To open language settings -
+
+To open development option -
+adb shell am start -n com.android.settings/.DevelopmentSettings
+
+To open dateTime set-up
+adb shell am start -n com.android.settings/.DateTimeSettingsSetupWizard
+
+To turn on bluetooth -
+adb shell am start -a android.bluetooth.adapter.action.REQUEST_ENABLE
+
+To turn discoverable bt
+adb shell am start -a android.bluetooth.adapter.action.REQUEST_DISCOVERABLE
+
+To open wifi-
+adb shell am start -n com.android.settings/.wifi.WifiSettings
+
+Connaitre l'adress MAC du téléphone
+adb shell settings get secure bluetooth_address
+
+
+adb shell +
+-----------
+getprop ro.build.version.release - shows the version of Android system.
+dumpsys battery | grep level - battery level.
+dumpsys package com.PackageName.enterprise - dumps app permission state.
+
+pm list packages -f - shows a list of packages / applications installed in the system.
+pm list packages -f | cut -f 2 -d "=" - lists all installed apps. pm list packages | awk -F ":" '{print $2}' - the same as above.
+
+am start -n com.package.name/com.package.name.ActivityName - starts an Activity pointed by you (in the same manner you can run an Android Service).
+
+pm list permissions -d -g - list permissions and status by group.
+pm [grant|revoke] <permission-name> - grant or revoke one or more permissions, for example: adb shell pm revoke com.PackageName.enterprise android.permission.READ_CONTACTS
+
+Basic operations with Android Settings:
+
+am start -a android.bluetooth.adapter.action.REQUEST_ENABLE - turns on Bluetooth.
+am start -n com.android.settings/.wifi.WifiSettings - opens WiFi. 
+am start -n com.android.settings/.wifi.WifiInfo - fetches WiFi info.
+am start -n com.android.settings/.wifi.WifiStatusTest - shows WiFi status.
+am start -n com.android.settings/.LanguageSettings - opens language settings.
+am start -n com.android.settings/.DevelopmentSettings - opens development options.
+am start -n com.android.settings/.DateTimeSettingsSetupWizard - sets up Date / Time.
+
+As root using service call:
+su -c service call bluetooth_manager 6 turn bluetooth on - turns on Bluetooth. su -c service call bluetooth_manager 8 turn bluetooth off - turns off Bluetooth.
+
+As non-root using key events:
+am start -a android.settings.BLUETOOTH_SETTINGS - opens Bluetooth settings.
+input keyevent 19 - a key event for up button. 
+input keyevent 23 - a key event for enter / return (Dpad center).
+
+
+Lire un fichier Audio
+adb shell am start -a android.intent.action.VIEW -d "file://///storage/sdcard0/Music/BT_Track_1.mp3" -t audio/wav
+
+Envoyer un SMSl
+adb shell am start -a android.intent.action.SENDTO -d sms:CCXXXXXXXX --es sms_body "Test" --ez exit_on_sent true
+
+Passer un appel
+adb -s "serial number" shell am start -a android.intent.action.CALL -d tel:"numero à appeller"
+
+
+
+
+>adb shell am start -a android.intent.action.VIEW -d "file:////storage/emulated/0/Ar_Music/1\ Folder\ Audio/2\ MP3/48kHz/MP3_48kHz_112kbps.mp3"
+
+
