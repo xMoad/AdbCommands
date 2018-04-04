@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+import time
+import fmbtandroid
+import sys
+import os  
+from Functions import __Check__, __Init__, __killADB__, SendSMS, setIntent, PressButton, TapOnBitMap
+
+
+dut = __Init__()
+TapOnBitMap(dut, "LaunchSPVR")
+__Check__(dut, "LaunchSPVR")
+PressButton(dut, "HomeSPVR")
+__Check__(dut, "HomeSPVR")
+__killADB__(dut)
+
+os.system("adb.exe kill-server")
+sys.exit(0)
